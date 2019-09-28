@@ -1,0 +1,14 @@
+BoussoleHub: 
+# Utilisez "&" pour rajouter des couleurs
+   name: "&4&lLobby Selector"
+   lore: 
+   #- Allows you to select a server
+   #-
+   #-
+spawnlocation:
+
+
+Bossbar:
+   info: "&2Hub &aMenu"
+   # Available colors : BLUE,GREEN,PINK,PURPLE,RED,WHITE,YELLOW
+   color: BLUE

@@ -1,0 +1,50 @@
+name: HubMenu
+version: 1.0
+api-version: 1.14
+author: NullException
+main: me.NullException.hubmenu.Plugin.HubMenuMain
+commands:
+   editmenu: 
+      description: Allows you to edit your hub menu
+      usage: "/editmenu <SizeOfMenu>"
+   setdisplayname:
+      description: sets displayname of item
+      usage: "/setdisplayname <name>"
+   setlore:
+      description: sets lore
+      usage: "/setlore <line> <text>"
+   setenchant:
+      description: sets enchants
+      usage: "/setenchant <enchant> <level>"
+   setitemflag:
+      description: sets itemflags
+      usage: "/setitemflag <flag>"
+   addserveritem:
+      description: creates a serveritem file in the config
+      usage: "/addserveritem <BungeeServerName>"
+   setspawn:
+      description: sets the spawn
+      usage: "/test"
+   spawn:
+      description: teleports to spawn
+      usage: "/spawn"
+   fly:
+      description: allows you to fly
+      usage: "/fly"
+      
+permissions:
+   hubmenu.editmenu.use:
+      description : Allows you to use the command /editmenu
+   hubmenu.serveritem.modify:
+      description: Allows you to modify an item's meta
+   hubmenu.inventory.move:
+      description: Allows you to move items freely in your inventory
+   hubmenu.setspawn.use:
+      description: Allows you to set a new spawn
+   hubmenu.spawn.use:
+      description: Allows you to teleport to spawn
+   hubmenu.fly:
+      description: Allows you to modify your fly status
+   hubmenu.fly.others:
+      description: Allows you to make people fly
+      
