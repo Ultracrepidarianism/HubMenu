@@ -41,7 +41,8 @@ public class PluginListener implements Listener {
 			player.setAllowFlight(true);
 			player.setFlying(true);
 		}
-		player.teleport((Location) config.get("spawnlocation"));
+		if((Location)config.get("spawnlocation") instanceof Location)
+			player.teleport((Location) config.get("spawnlocation"));
 		if (!player.isOp()) {
 			player.getInventory().clear();
 			player.setGameMode(GameMode.ADVENTURE);
@@ -53,6 +54,7 @@ public class PluginListener implements Listener {
 		metaBH.setLore(loreBoussole);
 		boussoleHub.setItemMeta(metaBH);
 		player.getInventory().setItem(0, boussoleHub);
+		HubMenuMain.instance.serverhud.addPlayer(player);
 	}
 
 	@EventHandler

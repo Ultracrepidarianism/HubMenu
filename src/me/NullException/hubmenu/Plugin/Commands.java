@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.boss.BarColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,10 @@ public class Commands implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		// label = command args = everything after
+		if(label.equalsIgnoreCase("test"))
+		{
+			HubMenuMain.instance.serverhud.setColor(BarColor.RED);
+		}
 		if (label.equalsIgnoreCase("editmenu")) {
 			if (sender instanceof Player) {
 				ServerItem serverItem = HubMenuMain.serverItem;
@@ -101,6 +106,8 @@ public class Commands implements CommandExecutor {
 					player.setAllowFlight(!player.getAllowFlight());
 					player.setFlying(player.getAllowFlight());
 					String message = player.getAllowFlight() == true ? ChatColor.GREEN + "Fly enabled!": ChatColor.RED + "Fly disabled!";
+					player.sendMessage(message);
+					return true;
 				}
 			}
 		}

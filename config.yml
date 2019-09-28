@@ -8,7 +8,5 @@ BoussoleHub:
 spawnlocation:
 
 
-Bossbar:
-   info: "&2Hub &aMenu"
-   # Available colors : BLUE,GREEN,PINK,PURPLE,RED,WHITE,YELLOW
-   color: BLUE
+bossbar: 
+   title

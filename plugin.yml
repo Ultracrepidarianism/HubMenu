@@ -31,6 +31,9 @@ commands:
    fly:
       description: allows you to fly
       usage: "/fly"
+   test:
+      description: test
+      usage: "test"
       
 permissions:
    hubmenu.editmenu.use:
@@ -39,9 +42,9 @@ permissions:
       description: Allows you to modify an item's meta
    hubmenu.inventory.move:
       description: Allows you to move items freely in your inventory
-   hubmenu.setspawn.use:
+   hubmenu.setspawn:
       description: Allows you to set a new spawn
-   hubmenu.spawn.use:
+   hubmenu.spawn:
       description: Allows you to teleport to spawn
    hubmenu.fly:
       description: Allows you to modify your fly status

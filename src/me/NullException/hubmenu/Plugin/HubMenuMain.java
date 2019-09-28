@@ -1,5 +1,12 @@
 package me.NullException.hubmenu.Plugin;
 
+import org.bukkit.Bukkit;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarFlag;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -8,11 +15,13 @@ public class HubMenuMain extends JavaPlugin {
 public static HubMenuMain instance;
 public static CustomMenu customMenu;
 public static ServerItem serverItem;
+public static BossBar serverhud;
 	public void onEnable()
 	{
 		if (!getDataFolder().exists())
             getDataFolder().mkdir();
 		saveDefaultConfig();
+		InstantiateBossBar();
 		serverItem = new ServerItem();
 		instance = this;
 		this.RegisterChannels();
@@ -33,6 +42,7 @@ public static ServerItem serverItem;
 	}
 	public void OnDisable()
 	{
+		serverhud.removeAll();
 		saveConfig();
 	}
 	public void RegisterChannels()
@@ -40,5 +50,10 @@ public static ServerItem serverItem;
 		HubMenuMain.instance.getServer().getMessenger().registerOutgoingPluginChannel(HubMenuMain.instance, "BungeeCord");
 		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", serverItem );
 		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", new BungeeListener() );
+	}
+	
+	public void InstantiateBossBar()
+	{
+		serverhud = Bukkit.createBossBar("§2Hub §aMenu",BarColor.BLUE, BarStyle.SOLID, BarFlag.CREATE_FOG);
 	}
 }
