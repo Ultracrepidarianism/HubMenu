@@ -44,7 +44,6 @@ public static BossBar serverhud;
 		this.getCommand("hudsettitle").setExecutor(new Commands());
 		this.getCommand("hudsetcolor").setExecutor(new Commands());
 		this.getCommand("hudsetstyle").setExecutor(new Commands());
-		this.getCommand("test").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);
 	}
 	public void OnDisable()
