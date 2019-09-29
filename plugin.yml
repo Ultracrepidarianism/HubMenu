@@ -34,7 +34,16 @@ commands:
    test:
       description: test
       usage: "test"
-      
+   hudtoggle:
+      description: Toggles the hud
+      usage: "/hudtoggle"
+   hudsettitle:
+      description: Changes the title of the hud bar
+      usage: "/hudsettitle <title>"
+   hudsetcolor:
+      description: Changes the color of the hud bar
+   hudsetstyle:
+      description: Changes the style of the hud bar
 permissions:
    hubmenu.editmenu.use:
       description : Allows you to use the command /editmenu
@@ -50,4 +59,5 @@ permissions:
       description: Allows you to modify your fly status
    hubmenu.fly.others:
       description: Allows you to make people fly
-      
+   hubmenu.hud.modify:
+      description: Allows you to modify the hud

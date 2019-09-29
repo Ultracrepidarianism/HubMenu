@@ -2,11 +2,8 @@ package me.NullException.hubmenu.Plugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
-import org.bukkit.boss.BarFlag;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -21,7 +18,14 @@ public static BossBar serverhud;
 		if (!getDataFolder().exists())
             getDataFolder().mkdir();
 		saveDefaultConfig();
-		InstantiateBossBar();
+		try
+		{
+			serverhud.getTitle();
+		}
+		catch(NullPointerException npe)
+		{
+			InstantiateBossBar();
+		}
 		serverItem = new ServerItem();
 		instance = this;
 		this.RegisterChannels();
@@ -35,9 +39,12 @@ public static BossBar serverhud;
 		this.getCommand("setenchant").setExecutor(new Commands());
 		this.getCommand("setitemflag").setExecutor(new Commands());
 		this.getCommand("addserveritem").setExecutor(new Commands());
-		this.getCommand("spawn").setExecutor(new Commands());
-		this.getCommand("spawn").setExecutor(new Commands());
 		this.getCommand("fly").setExecutor(new Commands());
+		this.getCommand("hudtoggle").setExecutor(new Commands());
+		this.getCommand("hudsettitle").setExecutor(new Commands());
+		this.getCommand("hudsetcolor").setExecutor(new Commands());
+		this.getCommand("hudsetstyle").setExecutor(new Commands());
+		this.getCommand("test").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);
 	}
 	public void OnDisable()
@@ -54,6 +61,12 @@ public static BossBar serverhud;
 	
 	public void InstantiateBossBar()
 	{
-		serverhud = Bukkit.createBossBar("§2Hub §aMenu",BarColor.BLUE, BarStyle.SOLID, BarFlag.CREATE_FOG);
+		try {
+			serverhud = Bukkit.createBossBar(getConfig().getString("bossbar.title").replaceAll("&", "§"),BarColor.valueOf(getConfig().getString("bossbar.color").toUpperCase()), BarStyle.valueOf(getConfig().getString("bossbar.style").toUpperCase()));
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 }

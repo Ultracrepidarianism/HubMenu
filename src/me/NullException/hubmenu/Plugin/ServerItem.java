@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -82,7 +83,7 @@ public class ServerItem implements PluginMessageListener {
 						}
 						pPlayer.sendMessage(ChatColor.GREEN + "Item linked to a server succesfully !\n"
 								+ ChatColor.GREEN + "Put it in your menu using /editmenu !");
-						pPlayer.getInventory().setItemInMainHand(null);
+						pPlayer.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
 						return;
 					}
 				}

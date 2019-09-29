@@ -7,6 +7,7 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,30 +23,28 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Commands implements CommandExecutor {
 	FileConfiguration cfg = HubMenuMain.instance.getConfig();
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		// label = command args = everything after
-		if(label.equalsIgnoreCase("test"))
-		{
-			HubMenuMain.instance.serverhud.setColor(BarColor.RED);
-		}
 		if (label.equalsIgnoreCase("editmenu")) {
 			if (sender instanceof Player) {
 				ServerItem serverItem = HubMenuMain.serverItem;
 				CustomMenu customMenu = HubMenuMain.customMenu;
 				Player player = (Player) sender;
-				if(player.hasPermission("hubmenu.editmenu.use"))
-				if (args.length == 0) {
-					ItemStack[] actualMenuContent = customMenu.getInventory().getContents();
+				if (player.hasPermission("hubmenu.editmenu.use"))
+					if (args.length == 0) {
+						ItemStack[] actualMenuContent = customMenu.getInventory().getContents();
 
-					Inventory editmenu = Bukkit.createInventory(null, customMenu.getInventory().getSize(), "editmenu");
-					List<ItemStack> listItem = serverItem.GetItems();
-					for (ItemStack item : listItem)
-						player.getInventory().addItem(item);
-					editmenu.setContents(actualMenuContent);
-					player.openInventory(editmenu);
-					return true;
-				}
+						Inventory editmenu = Bukkit.createInventory(null, customMenu.getInventory().getSize(),
+								"editmenu");
+						List<ItemStack> listItem = serverItem.GetItems();
+						for (ItemStack item : listItem)
+							player.getInventory().addItem(item);
+						editmenu.setContents(actualMenuContent);
+						player.openInventory(editmenu);
+						return true;
+					}
 				if (args.length == 1) {
 					List<Integer> tableSize = new ArrayList<>(Arrays.asList(9, 18, 27, 36, 45, 54));
 					if (!tableSize.contains(Integer.parseInt(args[0]))) {
@@ -62,50 +61,40 @@ public class Commands implements CommandExecutor {
 				}
 			}
 		}
-		
-		if (label.equalsIgnoreCase("setspawn"))
-		{
-			if(sender instanceof Player)
-			{
-				if(args.length == 0)
-				{
-				Player player = (Player)sender;
-				cfg.set("spawnlocation", player.getLocation());
-				HubMenuMain.instance.saveConfig();
-				player.sendMessage(ChatColor.GREEN + "Spawn successfully set!");
-				return true;
+
+		if (label.equalsIgnoreCase("setspawn")) {
+			if (sender instanceof Player) {
+				if (args.length == 0) {
+					Player player = (Player) sender;
+					cfg.set("spawnlocation", player.getLocation());
+					HubMenuMain.instance.saveConfig();
+					player.sendMessage(ChatColor.GREEN + "Spawn successfully set!");
+					return true;
 				}
 			}
 		}
-		if(label.equalsIgnoreCase("spawn"))
-		{
-			if(sender instanceof Player)
-			{
-				Player player = (Player)sender;
-				if((Location)cfg.get("spawnlocation") instanceof Location)
-				{
-				Location spawn = (Location)cfg.get("spawnlocation");
-				player.teleport(spawn);
-				return true;
-				}
-				else
-				{
+		if (label.equalsIgnoreCase("spawn")) {
+			if (sender instanceof Player) {
+				Player player = (Player) sender;
+				if ((Location) cfg.get("spawnlocation") instanceof Location) {
+					Location spawn = (Location) cfg.get("spawnlocation");
+					player.teleport(spawn);
+					return true;
+				} else {
 					player.sendMessage(ChatColor.RED + "Please set the spawn first!");
 					return true;
 				}
 			}
 
 		}
-		if(label.equalsIgnoreCase("Fly"))
-		{
-			if(sender instanceof Player)
-			{
-				Player player = (Player)sender;
-				if(player.hasPermission("hubmenu.fly"))
-				{
+		if (label.equalsIgnoreCase("Fly")) {
+			if (sender instanceof Player) {
+				Player player = (Player) sender;
+				if (player.hasPermission("hubmenu.fly")) {
 					player.setAllowFlight(!player.getAllowFlight());
 					player.setFlying(player.getAllowFlight());
-					String message = player.getAllowFlight() == true ? ChatColor.GREEN + "Fly enabled!": ChatColor.RED + "Fly disabled!";
+					String message = player.getAllowFlight() == true ? ChatColor.GREEN + "Fly enabled!"
+							: ChatColor.RED + "Fly disabled!";
 					player.sendMessage(message);
 					return true;
 				}
@@ -205,6 +194,93 @@ public class Commands implements CommandExecutor {
 		} else {
 			HubMenuMain.instance.getLogger().info(ChatColor.RED + "You must be a player to use this command");
 			return true;
+		}
+		if (sender instanceof Player) {
+			Player player = (Player) sender;
+			if (player.hasPermission("hubmenu.hud.modify")) {
+				if (label.equalsIgnoreCase("hudtoggle")) {
+					if(args.length == 0)
+					HubMenuMain.serverhud.setVisible(!HubMenuMain.serverhud.isVisible());
+				}
+				if (label.equalsIgnoreCase("hudsetstyle")) {
+					if(args.length == 1)
+					{
+						try
+						{
+							HubMenuMain.serverhud.setStyle(BarStyle.valueOf(args[0].toUpperCase()));
+							cfg.set("bossbar.style", HubMenuMain.serverhud.getStyle().name());
+							HubMenuMain.instance.saveConfig();
+							return true;
+						}
+						catch(IllegalArgumentException e)
+						{
+							String line = ChatColor.RED +  "Please use one of the following: \n";
+							for(BarStyle barstyle : BarStyle.values())
+							{
+								if(barstyle.equals(BarStyle.values()[BarStyle.values().length -1]))
+								{
+									line += barstyle.name();
+								}
+								else
+								{
+									line += barstyle.name() + ","; 
+								}
+							}
+							player.sendMessage(line);
+						}
+					}
+				}
+				if (label.equalsIgnoreCase("hudsettitle")) {
+					if(args.length >= 1)
+					{
+						String title = args[0];
+						for(String arg : Arrays.copyOfRange(args, 1, args.length))
+						{
+							title+= " " + arg;
+						}
+						try
+						{
+							HubMenuMain.serverhud.setTitle(title.replaceAll("&", "§"));
+							cfg.set("bossbar.title", HubMenuMain.serverhud.getTitle());
+							HubMenuMain.instance.saveConfig();
+							return true;
+						}
+						catch(Exception e)
+						{
+							player.sendMessage("Please send me the StackTrace and i'm gonna try to fix your issue");
+							e.printStackTrace();
+						}
+					}
+				}
+				if (label.equalsIgnoreCase("hudsetcolor")) {
+					if(args.length == 1)
+					{
+						try
+						{
+							HubMenuMain.serverhud.setColor(BarColor.valueOf(args[0].toUpperCase()));
+							cfg.set("bossbar.color", HubMenuMain.serverhud.getColor().name());
+							HubMenuMain.instance.saveConfig();
+							return true;
+						}
+						catch(IllegalArgumentException e)
+						{
+							String line = ChatColor.RED +  "Please use one of the following: \n";
+							for(BarColor barstyle : BarColor.values())
+							{
+								if(barstyle.equals(BarColor.values()[BarColor.values().length -1]))
+								{
+									line += barstyle.name();
+								}
+								else
+								{
+									line += barstyle.name() + ","; 
+								}
+							}
+							player.sendMessage(line);
+						}
+					}
+				}
+			}
 		}
 		return false;
 	}

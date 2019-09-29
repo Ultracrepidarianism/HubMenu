@@ -9,4 +9,9 @@ spawnlocation:
 
 
 bossbar: 
-   title
+   #title displayed on the hud
+   title: "&2Hub &aMenu"
+   #color of the hud BLUE,GREEN,PINK,PURPLE,RED,WHITE,YELLOW
+   color: white
+   #SOLID,SEGMENTED_6,SEGMENTED_10,SEGMENTED_12,SEGMENTED_20
+   style: solid

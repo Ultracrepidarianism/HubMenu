@@ -46,15 +46,15 @@ public class PluginListener implements Listener {
 		if (!player.isOp()) {
 			player.getInventory().clear();
 			player.setGameMode(GameMode.ADVENTURE);
-			player.setInvulnerable(true);
 		}
+		player.setInvulnerable(true);
 		ItemStack boussoleHub = new ItemStack(Material.COMPASS, 1);
 		ItemMeta metaBH = boussoleHub.getItemMeta();
 		metaBH.setDisplayName(config.getConfigurationSection("BoussoleHub").getString("name").replaceAll("&", "§"));
 		metaBH.setLore(loreBoussole);
 		boussoleHub.setItemMeta(metaBH);
 		player.getInventory().setItem(0, boussoleHub);
-		HubMenuMain.instance.serverhud.addPlayer(player);
+		HubMenuMain.serverhud.addPlayer(player);
 	}
 
 	@EventHandler
