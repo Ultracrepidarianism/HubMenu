@@ -30,7 +30,7 @@ public class Commands implements CommandExecutor {
 		if (label.equalsIgnoreCase("editmenu")) {
 			if (sender instanceof Player) {
 				ServerItem serverItem = HubMenuMain.serverItem;
-				CustomMenu customMenu = HubMenuMain.customMenu;
+				CustomMenu customMenu = HubMenuMain.instance.customMenu;
 				Player player = (Player) sender;
 				if (player.hasPermission("hubmenu.editmenu.use"))
 					if (args.length == 0) {

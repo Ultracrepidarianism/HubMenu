@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -18,6 +19,7 @@ public class CustomMenu {
 	private String title;
 	private File invFile;
 	private Inventory menu;
+	private Inventory temp;
 	
 	public CustomMenu() {
 		Setup(HubMenuMain.getPlugin(HubMenuMain.class));
@@ -56,7 +58,7 @@ public class CustomMenu {
 	public void Save(Inventory inventory) {
 		if(inventory != null)
 		{
-			title = invConfig.getString("menu.title");
+			title = menu.getTitle();
 			invFile.delete();
 			try {
 				invFile.createNewFile();
@@ -101,8 +103,9 @@ public class CustomMenu {
 
 	public void Open(Player player)
 	{
-		
-		player.openInventory(menu);
+		Inventory temp = Bukkit.createInventory(null, menu.getSize(),menu.getTitle());
+		temp.setContents(menu.getContents());
+		player.openInventory(temp);
 	}
 	
 	public Inventory getInventory()

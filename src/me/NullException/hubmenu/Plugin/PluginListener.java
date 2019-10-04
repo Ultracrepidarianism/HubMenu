@@ -27,7 +27,6 @@ public class PluginListener implements Listener {
 	private FileConfiguration config = HubMenuMain.instance.getConfig();
 	private String nomBoussole = config.getConfigurationSection("BoussoleHub").getString("name").replaceAll("&", "§");
 	private List<String> loreBoussole = config.getConfigurationSection("BoussoleHub").getStringList("lore");
-	private CustomMenu menu = HubMenuMain.customMenu;
 
 	@EventHandler
 	public void onSaturationLoss(FoodLevelChangeEvent e) {
@@ -67,15 +66,15 @@ public class PluginListener implements Listener {
 		Player player = event.getPlayer();
 		if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
 				&& itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
-			player.openInventory(menu.getInventory());
+			HubMenuMain.instance.customMenu.Open(player);
 		}
 	}
 
 	@EventHandler
 	public void OnInventoryClosed(InventoryCloseEvent event) {
-		Inventory inv = event.getInventory();
-		if (inv.getName() == "editmenu") {
-			menu.Save(inv);
+		Inventory inv = event.getView().getTopInventory();
+		if (inv.getTitle().equalsIgnoreCase("editmenu")) {
+			HubMenuMain.instance.customMenu.Save(inv);
 		}
 	}
 
