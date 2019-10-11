@@ -19,7 +19,6 @@ public class CustomMenu {
 	private String title;
 	private File invFile;
 	private Inventory menu;
-	private Inventory temp;
 	
 	public CustomMenu() {
 		Setup(HubMenuMain.getPlugin(HubMenuMain.class));

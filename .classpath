@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/GAMER/Desktop/SpigotMC Java/spigot-1.12.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/GAMER/Desktop/SpigotMC Java/BungeeCord.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rockf/Desktop/SpigotMC Java/HubMenu.jar"/>
+	<classpathentry kind="lib" path="C:/Users/rockf/Desktop/SpigotMC Java/spigot-1.12.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
