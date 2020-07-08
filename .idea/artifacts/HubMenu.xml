@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="HubMenu">
-    <output-path>$PROJECT_DIR$/out/artifacts/HubMenu</output-path>
+    <output-path>$PROJECT_DIR$/../../minecraft/lobby/plugins</output-path>
     <root id="archive" name="HubMenu.jar">
       <element id="module-output" name="HubMenuMaven" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />

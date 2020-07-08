@@ -6,15 +6,25 @@ import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitScheduler;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class HubMenuMain extends JavaPlugin {
 	
 public static HubMenuMain instance;
 public CustomMenu customMenu;
+public static List<String> lstServeurs;
 public static ServerItem serverItem;
 public static BossBar serverhud;
+public Map<String, Integer> serverPopulation;
+
+
 	public void onEnable()
 	{
 		if (!getDataFolder().exists())
@@ -26,10 +36,11 @@ public static BossBar serverhud;
 		}
 		catch(NullPointerException npe)
 		{
-			System.out.println("bossbar doesn't exist");
 			InstantiateBossBar();
 		}
+		serverPopulation = new HashMap<>();
 		serverItem = new ServerItem();
+		lstServeurs = new ArrayList<>();
 		instance = this;
 		this.RegisterChannels();
 		customMenu = new CustomMenu();
@@ -49,7 +60,7 @@ public static BossBar serverhud;
 		this.getCommand("hudsetstyle").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);
 	}
-	public void OnDisable()
+	public void onDisable()
 	{
 		serverhud.removeAll();
 	}

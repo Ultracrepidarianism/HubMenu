@@ -3,6 +3,7 @@ package me.NullException.hubmenu.Plugin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -38,7 +39,7 @@ public class Commands implements CommandExecutor {
 
 							Inventory editmenu = Bukkit.createInventory(null, customMenu.getInventory().getSize(),
 									"editmenu");
-							List<ItemStack> listItem = serverItem.GetItems();
+							Set<ItemStack> listItem = serverItem.GetItems().keySet();
 							for (ItemStack item : listItem)
 								player.getInventory().addItem(item);
 							editmenu.setContents(actualMenuContent);
@@ -53,7 +54,7 @@ public class Commands implements CommandExecutor {
 							return true;
 						}
 						Inventory editmenu = Bukkit.createInventory(null, Integer.parseInt(args[0]), "editmenu");
-						List<ItemStack> listItem = serverItem.GetItems();
+						Set<ItemStack> listItem = serverItem.GetItems().keySet();
 						for (ItemStack item : listItem)
 							editmenu.addItem(item);
 						player.openInventory(editmenu);
@@ -227,7 +228,7 @@ public class Commands implements CommandExecutor {
 						try
 						{
 							HubMenuMain.serverhud.setTitle(title.replaceAll("&", "§"));
-							cfg.set("bossbar.title", HubMenuMain.serverhud.getTitle());
+							cfg.set("bossbar.title", title);
 							HubMenuMain.instance.saveConfig();
 							return true;
 						}

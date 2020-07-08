@@ -3,7 +3,9 @@ package me.NullException.hubmenu.Plugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,11 +29,13 @@ public class ServerItem implements PluginMessageListener {
 	private Plugin main = HubMenuMain.getPlugin(HubMenuMain.class);
 	private String path = main.getDataFolder().getAbsolutePath() + File.separator + "ServerItems";
 	private File dataFolder = new File(path);
+	public Map<ItemStack,String> mapServerItem;
 
 	public ServerItem() {
 		if (!dataFolder.exists()) {
 			dataFolder.mkdir();
 		}
+		mapServerItem = GetItems();
 	}
 
 	public void Setup(String[] listServer) {
@@ -66,7 +70,7 @@ public class ServerItem implements PluginMessageListener {
 					pPlayer.sendMessage(ChatColor.RED + "You cannot use this item!");
 					return;
 				}
-				for (ItemStack item : GetItems()) {
+				for (ItemStack item : GetItems().keySet()) {
 					if (pItem.equals(item)) {
 						pPlayer.sendMessage(ChatColor.RED + "This item is already linked to a server !");
 						return;
@@ -94,13 +98,13 @@ public class ServerItem implements PluginMessageListener {
 
 	}
 
-	public List<ItemStack> GetItems() {
-		List<ItemStack> listItem = new ArrayList<ItemStack>();
+	public Map<ItemStack, String> GetItems() {
+		Map<ItemStack, String> listItem = new HashMap<>();
 		for (File test : new File(path).listFiles()) {
 			itemConfig = YamlConfiguration.loadConfiguration(test);
 			ItemStack item = itemConfig.getItemStack("item");
 			if (item != null)
-				listItem.add(item);
+				listItem.put(item, itemConfig.getString("server"));
 		}
 		return listItem;
 	}

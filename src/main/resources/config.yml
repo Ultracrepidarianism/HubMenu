@@ -1,8 +1,8 @@
 BoussoleHub: 
 # Use "&" to add colors
    name: "&4&lLobby Selector"
-   lore: 
-   #- Allows you to select a server
+   lore:
+      - Allows you to select a server
    #-
    #-
 spawnlocation:

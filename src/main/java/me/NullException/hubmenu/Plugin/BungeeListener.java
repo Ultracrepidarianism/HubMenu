@@ -8,6 +8,8 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
+import java.util.Arrays;
+
 public class BungeeListener implements PluginMessageListener {
 
 	public static String ip = "";
@@ -41,10 +43,14 @@ public class BungeeListener implements PluginMessageListener {
 			ip = in.readUTF();
 			port = in.readInt();
 		}
-		if(sub.contentEquals("PlayerCount"))
+		if(sub.equals("PlayerCount"))
 		{
-			in.readUTF();
-			players = in.readInt(); 
+			String server = in.readUTF();
+			Integer playercount = in.readInt();
+			HubMenuMain.instance.serverPopulation.put(server,playercount);
+		}
+		if (sub.equals("GetServers")) {
+			HubMenuMain.lstServeurs = Arrays.asList(in.readUTF().split(", "));
 		}
 	}
 }

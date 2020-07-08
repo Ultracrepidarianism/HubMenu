@@ -6,11 +6,50 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8e47dcb-b29c-49e0-89ee-12399125e588" name="Default Changelist" comment="" />
+    <list default="true" id="b8e47dcb-b29c-49e0-89ee-12399125e588" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HubMenu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HubMenu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/ServerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/ServerItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -20,6 +59,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1eFoHAAkNWe1uk8vo4WFXWSCwol" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -27,9 +67,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../minecraft/lobby/plugins" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.1275862" />
@@ -45,7 +86,10 @@
       <option name="presentableId" value="Default" />
       <updated>1593926611461</updated>
       <workItem from="1593926614291" duration="1842000" />
-      <workItem from="1593969324926" duration="9345000" />
+      <workItem from="1593969324926" duration="11569000" />
+      <workItem from="1594012146678" duration="2255000" />
+      <workItem from="1594056473878" duration="24994000" />
+      <workItem from="1594147652445" duration="10865000" />
     </task>
     <servers />
   </component>
@@ -57,24 +101,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593973654827" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1593992065687">
+    <state x="523" y="28" key="CommitChangelistDialog2" timestamp="1594099031460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593992065687" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1593992072829">
+    <state x="523" y="28" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594099031460" />
+    <state x="184" y="86" key="DiffContextDialog" timestamp="1594099030122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1593992072829" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="184" y="86" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594099030122" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594099819408">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594099819408" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1594096716687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594096716687" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594099812882">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594099812882" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594105485268">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594105485268" />
   </component>
 </project>
