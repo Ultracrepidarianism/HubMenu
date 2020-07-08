@@ -191,7 +191,7 @@ public class Commands implements CommandExecutor {
 					if(args.length == 0)
 						HubMenuMain.instance.serverhud.setVisible(!HubMenuMain.instance.serverhud.isVisible());
 				}
-				if (label.equalsIgnoreCase("hudsetstyle")) {
+				if (label.equalsIgnoreCase("sethudstyle")) {
 					if(args.length == 1)
 					{
 						try
@@ -219,7 +219,7 @@ public class Commands implements CommandExecutor {
 						}
 					}
 				}
-				if (label.equalsIgnoreCase("hudsettitle")) {
+				if (label.equalsIgnoreCase("sethudtitle")) {
 					if(args.length >= 1)
 					{
 						String title = args[0];
@@ -241,7 +241,7 @@ public class Commands implements CommandExecutor {
 						}
 					}
 				}
-				if (label.equalsIgnoreCase("hudsetcolor")) {
+				if (label.equalsIgnoreCase("sethudcolor")) {
 					if(args.length == 1)
 					{
 						try

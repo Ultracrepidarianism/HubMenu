@@ -8,17 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b8e47dcb-b29c-49e0-89ee-12399125e588" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +86,8 @@
       <workItem from="1594056473878" duration="24994000" />
       <workItem from="1594147652445" duration="12036000" />
       <workItem from="1594179968320" duration="13451000" />
+      <workItem from="1594235956989" duration="932000" />
+      <workItem from="1594237472300" duration="602000" />
     </task>
     <servers />
   </component>
@@ -118,10 +115,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594096716687" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1594099812882">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1594236407003">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594099812882" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1594236407003" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594181615428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

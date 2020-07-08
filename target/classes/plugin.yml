@@ -1,6 +1,6 @@
 name: HubMenu
 version: 1.0
-api-version: 1.14
+api-version: 1.16
 author: NullException
 main: me.NullException.hubmenu.Plugin.HubMenuMain
 commands:
@@ -37,13 +37,13 @@ commands:
    hudtoggle:
       description: Toggles the hud
       usage: "/hudtoggle"
-   hudsettitle:
+   sethudtitle:
       description: Changes the title of the hud bar
       usage: "/hudsettitle <title>"
-   hudsetcolor:
+   sethudcolor:
       description: Changes the color of the hud bar
       usage: "/hudsetcolor <color>"
-   hudsetstyle:
+   sethudstyle:
       description: Changes the style of the hud bar
       usage: "/hudsetstyle <style>"
 permissions:

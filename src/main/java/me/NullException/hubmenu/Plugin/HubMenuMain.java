@@ -49,9 +49,8 @@ public Map<String, Integer> serverPopulation;
 		this.getCommand("addserveritem").setExecutor(new Commands());
 		this.getCommand("fly").setExecutor(new Commands());
 		this.getCommand("hudtoggle").setExecutor(new Commands());
-		this.getCommand("hudsettitle").setExecutor(new Commands());
-		this.getCommand("hudsetcolor").setExecutor(new Commands());
-		this.getCommand("hudsetstyle").setExecutor(new Commands());
+		this.getCommand("sethudtitle").setExecutor(new Commands());
+		this.getCommand("sethudstyle").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);
 	}
 	public void onDisable()
