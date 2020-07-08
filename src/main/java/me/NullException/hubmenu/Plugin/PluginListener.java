@@ -31,9 +31,19 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class PluginListener implements Listener {
     private FileConfiguration config = HubMenuMain.instance.getConfig();
     private String nomBoussole = CommonUtils.colorize(config.getConfigurationSection("BoussoleHub").getString("name"));
-    private List<String> loreBoussole = config.getConfigurationSection("BoussoleHub").getStringList("lore");
+    private List<String> loreBoussole = ChangeLoreColor(config.getConfigurationSection("BoussoleHub").getStringList("lore"));
     private CustomMenu menu = HubMenuMain.instance.customMenu;
     private FileConfiguration menuConfig = menu.getData();
+
+    public List<String> ChangeLoreColor(List<String> ls) {
+        int index = 0;
+        for (String s : ls) {
+            ls.set(index, CommonUtils.colorize(s));
+            index++;
+        }
+        return ls;
+    }
+
 
     @EventHandler
     public void onSaturationLoss(FoodLevelChangeEvent e) {
@@ -48,23 +58,17 @@ public class PluginListener implements Listener {
 
     @EventHandler
     public void PreventItemMoveAndSwitchPlayer(InventoryClickEvent eClick) {
-        System.out.println("Rest in Power");
         if (eClick.getClickedInventory() != null)
-            System.out.println("Pickle Park");
-            System.out.println(menuConfig.getString("menu.title"));
             if (eClick.getView().getTitle().equalsIgnoreCase(menuConfig.getString("menu.title"))) {
-                System.out.println("oculoulinctus");
-                    if (HubMenuMain.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
-                        System.out.println("gouch");
-                        String serveur = HubMenuMain.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
-                        System.out.println("dis");
-                        Player player = (Player) eClick.getWhoClicked();
-                        System.out.println("Figgy Pudding");
-                        player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
-                        BungeeListener.sendPluginMessage("Connect", player,
-                                new String[]{serveur});
-                        eClick.setCancelled(true);
-                    }
+                if (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
+                    String serveur = HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
+                    Player player = (Player) eClick.getWhoClicked();
+                    System.out.println("Figgy Pudding");
+                    player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
+                    BungeeListener.sendPluginMessage("Connect", player,
+                            new String[]{serveur});
+                }
+                eClick.setCancelled(true);
             }
 
     }
@@ -91,10 +95,10 @@ public class PluginListener implements Listener {
         metaBH.setLore(loreBoussole);
         boussoleHub.setItemMeta(metaBH);
         player.getInventory().setItem(0, boussoleHub);
-        HubMenuMain.serverhud.addPlayer(player);
+        HubMenuMain.instance.serverhud.addPlayer(player);
     }
 
-    public void getServerPopulation(Player p){
+    public void getServerPopulation(Player p) {
         if (HubMenuMain.instance.serverPopulation.size() == 0) {
             BungeeListener.sendPluginMessage("GetServers", p, new String[]{});
 
@@ -102,7 +106,7 @@ public class PluginListener implements Listener {
                 @Override
                 public void run() {
                     Player yahoo = p;
-                    for (String s : HubMenuMain.lstServeurs) {
+                    for (String s : HubMenuMain.instance.lstServeurs) {
                         BungeeListener.sendPluginMessage("PlayerCount", yahoo, new String[]{s});
                     }
                 }
@@ -118,8 +122,7 @@ public class PluginListener implements Listener {
 
         ItemStack itemHand = event.getItem();
         Player player = event.getPlayer();
-        if (itemHand != null && itemHand.hasItemMeta())
-        {
+        if (itemHand != null && itemHand.hasItemMeta()) {
             System.out.println(itemHand.getItemMeta().getDisplayName());
             System.out.println(nomBoussole);
         }

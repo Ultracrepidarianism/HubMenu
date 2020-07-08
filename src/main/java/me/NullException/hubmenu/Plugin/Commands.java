@@ -31,7 +31,7 @@ public class Commands implements CommandExecutor {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 			if (label.equalsIgnoreCase("editmenu")) {
-					ServerItem serverItem = HubMenuMain.serverItem;
+					ServerItem serverItem = HubMenuMain.instance.serverItem;
 					CustomMenu customMenu = HubMenuMain.instance.customMenu;
 					if (player.hasPermission("hubmenu.editmenu.use"))
 						if (args.length == 0) {
@@ -110,6 +110,12 @@ public class Commands implements CommandExecutor {
 				}
 				if (label.equalsIgnoreCase("setlore")) {
 					if (args.length >= 2) {
+						try{
+							Integer testInt = Integer.parseInt(args[0]);}
+						catch(Exception e){
+							return false;
+						}
+
 						String lore = "";
 						for (int i = 1; i < args.length; i++) {
 							if (i == 1)
@@ -171,7 +177,7 @@ public class Commands implements CommandExecutor {
 					}
 				}
 				if (label.equalsIgnoreCase("addserveritem")) {
-					ServerItem serverItem = HubMenuMain.serverItem;
+					ServerItem serverItem = HubMenuMain.instance.serverItem;
 					if (args.length == 1) {
 						serverItem.addItem(player.getInventory().getItemInMainHand(), args[0], player);
 						return true;
@@ -183,15 +189,15 @@ public class Commands implements CommandExecutor {
 			if (player.hasPermission("hubmenu.hud.modify")) {
 				if (label.equalsIgnoreCase("hudtoggle")) {
 					if(args.length == 0)
-						HubMenuMain.serverhud.setVisible(!HubMenuMain.serverhud.isVisible());
+						HubMenuMain.instance.serverhud.setVisible(!HubMenuMain.instance.serverhud.isVisible());
 				}
 				if (label.equalsIgnoreCase("hudsetstyle")) {
 					if(args.length == 1)
 					{
 						try
 						{
-							HubMenuMain.serverhud.setStyle(BarStyle.valueOf(args[0].toUpperCase()));
-							cfg.set("bossbar.style", HubMenuMain.serverhud.getStyle().name());
+							HubMenuMain.instance.serverhud.setStyle(BarStyle.valueOf(args[0].toUpperCase()));
+							cfg.set("bossbar.style", HubMenuMain.instance.serverhud.getStyle().name());
 							HubMenuMain.instance.saveConfig();
 							return true;
 						}
@@ -223,7 +229,7 @@ public class Commands implements CommandExecutor {
 						}
 						try
 						{
-							HubMenuMain.serverhud.setTitle(CommonUtils.colorize(title));
+							HubMenuMain.instance.serverhud.setTitle(CommonUtils.colorize(title));
 							cfg.set("bossbar.title", title);
 							HubMenuMain.instance.saveConfig();
 							return true;
@@ -240,8 +246,8 @@ public class Commands implements CommandExecutor {
 					{
 						try
 						{
-							HubMenuMain.serverhud.setColor(BarColor.valueOf(args[0].toUpperCase()));
-							cfg.set("bossbar.color", HubMenuMain.serverhud.getColor().name());
+							HubMenuMain.instance.serverhud.setColor(BarColor.valueOf(args[0].toUpperCase()));
+							cfg.set("bossbar.color", HubMenuMain.instance.serverhud.getColor().name());
 							HubMenuMain.instance.saveConfig();
 							return true;
 						}

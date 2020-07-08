@@ -50,7 +50,7 @@ public class BungeeListener implements PluginMessageListener {
 			HubMenuMain.instance.serverPopulation.put(server,playercount);
 		}
 		if (sub.equals("GetServers")) {
-			HubMenuMain.lstServeurs = Arrays.asList(in.readUTF().split(", "));
+			HubMenuMain.instance.lstServeurs = Arrays.asList(in.readUTF().split(", "));
 		}
 	}
 }

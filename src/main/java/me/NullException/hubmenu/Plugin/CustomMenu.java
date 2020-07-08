@@ -118,9 +118,12 @@ public class CustomMenu {
                     }
                     if(im.hasLore()){
                         int index= 0;
+                        System.out.println("Live and let live");
                         List<String> lstLore = im.getLore();
                         for(String line : lstLore){
+                            System.out.println();
                             if(line.contains("%playercount%"))
+                                System.out.println();
                                 lstLore.set(index, line.replaceAll("%playercount%", getPlayerCount(is)));
                             index++;
                         }
@@ -137,7 +140,7 @@ public class CustomMenu {
     private String getPlayerCount(ItemStack i) {
         Player player = Iterables.getFirst(Bukkit.getOnlinePlayers(), null);
 		String serverName = "";
-        ServerItem si = HubMenuMain.serverItem;
+        ServerItem si = HubMenuMain.instance.serverItem;
         for (ItemStack is : si.GetItems().keySet()) {
             if (is.equals(i)) {
                 serverName = si.GetItems().get(i);

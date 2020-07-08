@@ -19,9 +19,9 @@ public class HubMenuMain extends JavaPlugin {
 	
 public static HubMenuMain instance;
 public CustomMenu customMenu;
-public static List<String> lstServeurs;
-public static ServerItem serverItem;
-public static BossBar serverhud;
+public List<String> lstServeurs;
+public ServerItem serverItem;
+public BossBar serverhud;
 public Map<String, Integer> serverPopulation;
 
 
