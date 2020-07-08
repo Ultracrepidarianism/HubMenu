@@ -61,7 +61,6 @@ public class Commands implements CommandExecutor {
 						return true;
 					}
 				}
-
 			if (label.equalsIgnoreCase("setspawn")) {
 					if (args.length == 0) {
 						cfg.set("spawnlocation", player.getLocation());
@@ -79,7 +78,6 @@ public class Commands implements CommandExecutor {
 					}
 				return true;
 			}
-
 			if (label.equalsIgnoreCase("Fly")) {
 					if (player.hasPermission("hubmenu.fly")) {
 						player.setAllowFlight(!player.getAllowFlight());
@@ -90,8 +88,6 @@ public class Commands implements CommandExecutor {
 						return true;
 					}
 				}
-
-
 			// Server Item Perms
 			if (player.hasPermission("hubmenu.serveritem.modify")) {
 				ItemStack item = player.getInventory().getItemInMainHand();
@@ -106,7 +102,7 @@ public class Commands implements CommandExecutor {
 							else
 								displayname += (" " + addSpace);
 						}
-						itemM.setDisplayName(displayname.replaceAll("&", "§"));
+						itemM.setDisplayName(CommonUtils.colorize(displayname));
 						item.setItemMeta(itemM);
 						player.getInventory().setItemInMainHand(item);
 						return true;
@@ -128,7 +124,7 @@ public class Commands implements CommandExecutor {
 						while (listLore.size() < (Integer.parseInt(args[0]))) {
 							listLore.add("");
 						}
-						listLore.set((Integer.parseInt(args[0]) - 1), lore.replaceAll("&", "§"));
+						listLore.set((Integer.parseInt(args[0]) - 1), CommonUtils.colorize(lore));
 						itemM.setLore(listLore);
 						item.setItemMeta(itemM);
 						player.getInventory().setItemInMainHand(item);
@@ -227,7 +223,7 @@ public class Commands implements CommandExecutor {
 						}
 						try
 						{
-							HubMenuMain.serverhud.setTitle(title.replaceAll("&", "§"));
+							HubMenuMain.serverhud.setTitle(CommonUtils.colorize(title));
 							cfg.set("bossbar.title", title);
 							HubMenuMain.instance.saveConfig();
 							return true;

@@ -30,14 +30,8 @@ public Map<String, Integer> serverPopulation;
 		if (!getDataFolder().exists())
             getDataFolder().mkdir();
 		saveDefaultConfig();
-		try
-		{
-			serverhud.getTitle();
-		}
-		catch(NullPointerException npe)
-		{
-			InstantiateBossBar();
-		}
+		serverhud = null;
+		InstantiateBossBar();
 		serverPopulation = new HashMap<>();
 		serverItem = new ServerItem();
 		lstServeurs = new ArrayList<>();
@@ -74,7 +68,7 @@ public Map<String, Integer> serverPopulation;
 	public void InstantiateBossBar()
 	{
 		try {
-			serverhud = Bukkit.createBossBar(getConfig().getString("bossbar.title").replaceAll("&", "§"),BarColor.valueOf(getConfig().getString("bossbar.color").toUpperCase()), BarStyle.valueOf(getConfig().getString("bossbar.style").toUpperCase()));
+			serverhud = Bukkit.createBossBar(CommonUtils.colorize(getConfig().getString("bossbar.title")),BarColor.valueOf(getConfig().getString("bossbar.color").toUpperCase()), BarStyle.valueOf(getConfig().getString("bossbar.style").toUpperCase()));
 		}
 		catch(Exception e)
 		{

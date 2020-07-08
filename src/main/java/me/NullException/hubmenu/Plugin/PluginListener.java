@@ -30,7 +30,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class PluginListener implements Listener {
     private FileConfiguration config = HubMenuMain.instance.getConfig();
-    private String nomBoussole = config.getConfigurationSection("BoussoleHub").getString("name");
+    private String nomBoussole = CommonUtils.colorize(config.getConfigurationSection("BoussoleHub").getString("name"));
     private List<String> loreBoussole = config.getConfigurationSection("BoussoleHub").getStringList("lore");
     private CustomMenu menu = HubMenuMain.instance.customMenu;
     private FileConfiguration menuConfig = menu.getData();
@@ -48,11 +48,18 @@ public class PluginListener implements Listener {
 
     @EventHandler
     public void PreventItemMoveAndSwitchPlayer(InventoryClickEvent eClick) {
+        System.out.println("Rest in Power");
         if (eClick.getClickedInventory() != null)
+            System.out.println("Pickle Park");
+            System.out.println(menuConfig.getString("menu.title"));
             if (eClick.getView().getTitle().equalsIgnoreCase(menuConfig.getString("menu.title"))) {
+                System.out.println("oculoulinctus");
                     if (HubMenuMain.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
+                        System.out.println("gouch");
                         String serveur = HubMenuMain.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
+                        System.out.println("dis");
                         Player player = (Player) eClick.getWhoClicked();
+                        System.out.println("Figgy Pudding");
                         player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
                         BungeeListener.sendPluginMessage("Connect", player,
                                 new String[]{serveur});
@@ -80,7 +87,7 @@ public class PluginListener implements Listener {
         player.setInvulnerable(true);
         ItemStack boussoleHub = new ItemStack(Material.COMPASS, 1);
         ItemMeta metaBH = boussoleHub.getItemMeta();
-        metaBH.setDisplayName(config.getConfigurationSection("BoussoleHub").getString("name"));
+        metaBH.setDisplayName(nomBoussole);
         metaBH.setLore(loreBoussole);
         boussoleHub.setItemMeta(metaBH);
         player.getInventory().setItem(0, boussoleHub);
@@ -111,8 +118,14 @@ public class PluginListener implements Listener {
 
         ItemStack itemHand = event.getItem();
         Player player = event.getPlayer();
+        if (itemHand != null && itemHand.hasItemMeta())
+        {
+            System.out.println(itemHand.getItemMeta().getDisplayName());
+            System.out.println(nomBoussole);
+        }
         if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
                 && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
+            System.out.println("HELP ME");
             getServerPopulation(player);
             HubMenuMain.instance.customMenu.Open(player);
         }

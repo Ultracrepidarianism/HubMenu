@@ -85,6 +85,7 @@ public class ServerItem implements PluginMessageListener {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+						mapServerItem.put(pItem, pServer);
 						pPlayer.sendMessage(ChatColor.GREEN + "Item linked to a server succesfully !\n"
 								+ ChatColor.GREEN + "Put it in your menu using /editmenu !");
 						pPlayer.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
