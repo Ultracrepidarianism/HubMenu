@@ -26,7 +26,7 @@ public class SocketMenu
 					str.append((char)b);
 			}
 			data = str.toString().split("§");
-			data[1] = data[1].substring(1,data[1].length());
+			data[1] = data[1].substring(1);
 		}
 		catch(IOException e) {
 			e.printStackTrace();

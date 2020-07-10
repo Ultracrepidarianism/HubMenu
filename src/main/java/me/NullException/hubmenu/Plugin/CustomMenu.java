@@ -118,12 +118,9 @@ public class CustomMenu {
                     }
                     if(im.hasLore()){
                         int index= 0;
-                        System.out.println("Live and let live");
                         List<String> lstLore = im.getLore();
                         for(String line : lstLore){
-                            System.out.println();
                             if(line.contains("%playercount%"))
-                                System.out.println();
                                 lstLore.set(index, line.replaceAll("%playercount%", getPlayerCount(is)));
                             index++;
                         }
@@ -148,7 +145,7 @@ public class CustomMenu {
         }
 
         if(serverName.equals("")) return "Offline";
-
+        System.out.println(HubMenuMain.instance.serverPopulation.get(serverName));
         return HubMenuMain.instance.serverPopulation.get(serverName) == null ? "Error Loading" : HubMenuMain.instance.serverPopulation.get(serverName).toString();
     }
 

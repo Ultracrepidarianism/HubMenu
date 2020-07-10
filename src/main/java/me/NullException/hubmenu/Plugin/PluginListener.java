@@ -60,10 +60,10 @@ public class PluginListener implements Listener {
     public void PreventItemMoveAndSwitchPlayer(InventoryClickEvent eClick) {
         if (eClick.getClickedInventory() != null)
             if (eClick.getView().getTitle().equalsIgnoreCase(menuConfig.getString("menu.title"))) {
+                System.out.println("condition similar item: " + (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null));
                 if (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
                     String serveur = HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
                     Player player = (Player) eClick.getWhoClicked();
-                    System.out.println("Figgy Pudding");
                     player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
                     BungeeListener.sendPluginMessage("Connect", player,
                             new String[]{serveur});
@@ -122,13 +122,8 @@ public class PluginListener implements Listener {
 
         ItemStack itemHand = event.getItem();
         Player player = event.getPlayer();
-        if (itemHand != null && itemHand.hasItemMeta()) {
-            System.out.println(itemHand.getItemMeta().getDisplayName());
-            System.out.println(nomBoussole);
-        }
         if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
                 && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
-            System.out.println("HELP ME");
             getServerPopulation(player);
             HubMenuMain.instance.customMenu.Open(player);
         }

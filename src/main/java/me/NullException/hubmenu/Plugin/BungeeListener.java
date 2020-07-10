@@ -9,6 +9,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class BungeeListener implements PluginMessageListener {
 
@@ -48,6 +49,9 @@ public class BungeeListener implements PluginMessageListener {
 			String server = in.readUTF();
 			Integer playercount = in.readInt();
 			HubMenuMain.instance.serverPopulation.put(server,playercount);
+			for (Map.Entry<String, Integer> entry : HubMenuMain.instance.serverPopulation.entrySet()) {
+				System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+			}
 		}
 		if (sub.equals("GetServers")) {
 			HubMenuMain.instance.lstServeurs = Arrays.asList(in.readUTF().split(", "));
