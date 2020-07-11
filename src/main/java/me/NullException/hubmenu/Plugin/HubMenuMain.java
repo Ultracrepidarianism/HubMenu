@@ -24,7 +24,6 @@ public ServerItem serverItem;
 public BossBar serverhud;
 public Map<String, Integer> serverPopulation;
 
-
 	public void onEnable()
 	{
 		if (!getDataFolder().exists())
@@ -48,7 +47,7 @@ public Map<String, Integer> serverPopulation;
 		this.getCommand("setitemflag").setExecutor(new Commands());
 		this.getCommand("addserveritem").setExecutor(new Commands());
 		this.getCommand("fly").setExecutor(new Commands());
-		this.getCommand("hudtoggle").setExecutor(new Commands());
+		this.getCommand("togglehud").setExecutor(new Commands());
 		this.getCommand("sethudtitle").setExecutor(new Commands());
 		this.getCommand("sethudstyle").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);

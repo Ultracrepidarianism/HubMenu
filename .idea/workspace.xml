@@ -7,16 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8e47dcb-b29c-49e0-89ee-12399125e588" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/HubMenu.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HubMenu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HubMenu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/SocketMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/SocketMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,10 +76,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../minecraft/lobby/plugins" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.1275862" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.excludes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="me.NullException.hubmenu.Plugin" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -98,6 +125,19 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Project_Structure" timestamp="1593973654827">

@@ -187,7 +187,7 @@ public class Commands implements CommandExecutor {
 
 			// HUD perms
 			if (player.hasPermission("hubmenu.hud.modify")) {
-				if (label.equalsIgnoreCase("hudtoggle")) {
+				if (label.equalsIgnoreCase("togglehud")) {
 					if(args.length == 0)
 						HubMenuMain.instance.serverhud.setVisible(!HubMenuMain.instance.serverhud.isVisible());
 				}

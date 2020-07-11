@@ -34,7 +34,7 @@ commands:
    test:
       description: test
       usage: "test"
-   hudtoggle:
+   togglehud:
       description: Toggles the hud
       usage: "/hudtoggle"
    sethudtitle:

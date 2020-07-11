@@ -145,7 +145,6 @@ public class CustomMenu {
         }
 
         if(serverName.equals("")) return "Offline";
-        System.out.println(HubMenuMain.instance.serverPopulation.get(serverName));
         return HubMenuMain.instance.serverPopulation.get(serverName) == null ? "Error Loading" : HubMenuMain.instance.serverPopulation.get(serverName).toString();
     }
 

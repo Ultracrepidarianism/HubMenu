@@ -1,8 +1,13 @@
 package me.NullException.hubmenu.Plugin;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
+import com.google.common.collect.Iterables;
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -26,9 +31,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class PluginListener implements Listener {
+public class PluginListener implements Listener, PluginMessageListener {
     private FileConfiguration config = HubMenuMain.instance.getConfig();
     private String nomBoussole = CommonUtils.colorize(config.getConfigurationSection("BoussoleHub").getString("name"));
     private List<String> loreBoussole = ChangeLoreColor(config.getConfigurationSection("BoussoleHub").getStringList("lore"));
@@ -60,13 +66,14 @@ public class PluginListener implements Listener {
     public void PreventItemMoveAndSwitchPlayer(InventoryClickEvent eClick) {
         if (eClick.getClickedInventory() != null)
             if (eClick.getView().getTitle().equalsIgnoreCase(menuConfig.getString("menu.title"))) {
-                System.out.println("condition similar item: " + (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null));
-                if (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
-                    String serveur = HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
-                    Player player = (Player) eClick.getWhoClicked();
-                    player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
-                    BungeeListener.sendPluginMessage("Connect", player,
-                            new String[]{serveur});
+                if(eClick.getRawSlot() < eClick.getView().getTopInventory().getSize()){
+                    if (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
+                        String serveur = HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
+                        Player player = (Player) eClick.getWhoClicked();
+                        player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
+                        sendPluginMessage("Connect", player,
+                                new String[]{serveur});
+                    }
                 }
                 eClick.setCancelled(true);
             }
@@ -76,7 +83,6 @@ public class PluginListener implements Listener {
     @EventHandler
     public void OnJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        getServerPopulation(player);
 
         if (player.hasPermission("hubmenu.fly")) {
             player.setAllowFlight(true);
@@ -96,21 +102,24 @@ public class PluginListener implements Listener {
         boussoleHub.setItemMeta(metaBH);
         player.getInventory().setItem(0, boussoleHub);
         HubMenuMain.instance.serverhud.addPlayer(player);
+        getServerPopulation(player);
     }
 
     public void getServerPopulation(Player p) {
         if (HubMenuMain.instance.serverPopulation.size() == 0) {
-            BungeeListener.sendPluginMessage("GetServers", p, new String[]{});
+            sendPluginMessage("GetServers", p, new String[]{});
 
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    Player yahoo = p;
-                    for (String s : HubMenuMain.instance.lstServeurs) {
-                        BungeeListener.sendPluginMessage("PlayerCount", yahoo, new String[]{s});
+                    Player yahoo = Iterables.getFirst(Bukkit.getOnlinePlayers(),null);
+                    if(yahoo != null){
+                        for (String s : HubMenuMain.instance.lstServeurs) {
+                            sendPluginMessage("PlayerCount", yahoo, new String[]{s});
+                        }
                     }
                 }
-            }.runTaskTimer(HubMenuMain.instance, 0L, 40L);
+            }.runTaskTimer(HubMenuMain.instance, 20L, 40L);
         }
     }
 
@@ -124,7 +133,6 @@ public class PluginListener implements Listener {
         Player player = event.getPlayer();
         if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
                 && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
-            getServerPopulation(player);
             HubMenuMain.instance.customMenu.Open(player);
         }
     }
@@ -136,6 +144,42 @@ public class PluginListener implements Listener {
             HubMenuMain.instance.customMenu.Save(inv);
         }
     }
+
+    //PMC
+    @Override
+    public synchronized void onPluginMessageReceived(String channel, Player player, byte[] message)
+    {
+        System.out.println(channel);
+        receivePluginMessage(channel, message);
+    }
+    public synchronized void sendPluginMessage(String sub,Player ply,String args[])
+    {
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+        out.writeUTF(sub);
+        for(String arg : args)
+        {
+            out.writeUTF(arg);
+        }
+        ply.sendPluginMessage(HubMenuMain.instance, "BungeeCord", out.toByteArray());
+    }
+
+    public synchronized void receivePluginMessage(String channel, byte[] bytes) {
+        if(!channel.equals("BungeeCord"))
+            return;
+        System.out.println("Receiving PMC - If you read this you're a wonderful gay person haha joke...unless ? Nah nah just kidding...?");
+        ByteArrayDataInput in = ByteStreams.newDataInput(bytes);
+        String sub = in.readUTF();
+        if(sub.equals("PlayerCount"))
+        {
+            String server = in.readUTF();
+            Integer playercount = in.readInt();
+            HubMenuMain.instance.serverPopulation.put(server,playercount);
+        }
+        if (sub.equals("GetServers")) {
+            HubMenuMain.instance.lstServeurs = Arrays.asList(in.readUTF().split(", "));
+        }
+    }
+
 
 
 }
