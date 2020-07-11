@@ -1,25 +1,17 @@
 package me.NullException.hubmenu.Plugin;
 
-import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import com.google.common.collect.Iterables;
-import com.google.common.io.ByteArrayDataInput;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -31,15 +23,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
-import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class PluginListener implements Listener, PluginMessageListener {
+public class PluginListener implements Listener {
     private FileConfiguration config = HubMenuMain.instance.getConfig();
     private String nomBoussole = CommonUtils.colorize(config.getConfigurationSection("BoussoleHub").getString("name"));
     private List<String> loreBoussole = ChangeLoreColor(config.getConfigurationSection("BoussoleHub").getStringList("lore"));
     private CustomMenu menu = HubMenuMain.instance.customMenu;
     private FileConfiguration menuConfig = menu.getData();
+
+    public PluginListener() {
+    }
+
 
     public List<String> ChangeLoreColor(List<String> ls) {
         int index = 0;
@@ -66,12 +61,12 @@ public class PluginListener implements Listener, PluginMessageListener {
     public void PreventItemMoveAndSwitchPlayer(InventoryClickEvent eClick) {
         if (eClick.getClickedInventory() != null)
             if (eClick.getView().getTitle().equalsIgnoreCase(menuConfig.getString("menu.title"))) {
-                if(eClick.getRawSlot() < eClick.getView().getTopInventory().getSize()){
+                if (eClick.getRawSlot() < eClick.getView().getTopInventory().getSize()) {
                     if (HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot())) != null) {
                         String serveur = HubMenuMain.instance.serverItem.mapServerItem.get(HubMenuMain.instance.customMenu.getInventory().getItem(eClick.getSlot()));
                         Player player = (Player) eClick.getWhoClicked();
                         player.sendMessage(ChatColor.GOLD + "Connection to " + serveur + "...");
-                        sendPluginMessage("Connect", player,
+                        HubMenuMain.bl.sendPluginMessage("Connect", player,
                                 new String[]{serveur});
                     }
                 }
@@ -102,25 +97,25 @@ public class PluginListener implements Listener, PluginMessageListener {
         boussoleHub.setItemMeta(metaBH);
         player.getInventory().setItem(0, boussoleHub);
         HubMenuMain.instance.serverhud.addPlayer(player);
-        getServerPopulation(player);
+        if (HubMenuMain.instance.serverPopulation.size() == 0)
+            getServerPopulation();
     }
 
-    public void getServerPopulation(Player p) {
-        if (HubMenuMain.instance.serverPopulation.size() == 0) {
-            sendPluginMessage("GetServers", p, new String[]{});
+    public void getServerPopulation() {
 
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    Player yahoo = Iterables.getFirst(Bukkit.getOnlinePlayers(),null);
-                    if(yahoo != null){
-                        for (String s : HubMenuMain.instance.lstServeurs) {
-                            sendPluginMessage("PlayerCount", yahoo, new String[]{s});
-                        }
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Player yahoo = Iterables.getFirst(Bukkit.getOnlinePlayers(), null);
+                if (HubMenuMain.instance.lstServeurs.size() == 0)
+                    HubMenuMain.bl.sendPluginMessage("GetServers", yahoo, new String[]{});
+                if (yahoo != null) {
+                    for (String s : HubMenuMain.instance.lstServeurs) {
+                        HubMenuMain.bl.sendPluginMessage("PlayerCount", yahoo, new String[]{s});
                     }
                 }
-            }.runTaskTimer(HubMenuMain.instance, 20L, 40L);
-        }
+            }
+        }.runTaskTimer(HubMenuMain.instance, 0L, 20L);
     }
 
     @EventHandler
@@ -144,42 +139,5 @@ public class PluginListener implements Listener, PluginMessageListener {
             HubMenuMain.instance.customMenu.Save(inv);
         }
     }
-
-    //PMC
-    @Override
-    public synchronized void onPluginMessageReceived(String channel, Player player, byte[] message)
-    {
-        System.out.println(channel);
-        receivePluginMessage(channel, message);
-    }
-    public synchronized void sendPluginMessage(String sub,Player ply,String args[])
-    {
-        ByteArrayDataOutput out = ByteStreams.newDataOutput();
-        out.writeUTF(sub);
-        for(String arg : args)
-        {
-            out.writeUTF(arg);
-        }
-        ply.sendPluginMessage(HubMenuMain.instance, "BungeeCord", out.toByteArray());
-    }
-
-    public synchronized void receivePluginMessage(String channel, byte[] bytes) {
-        if(!channel.equals("BungeeCord"))
-            return;
-        System.out.println("Receiving PMC - If you read this you're a wonderful gay person haha joke...unless ? Nah nah just kidding...?");
-        ByteArrayDataInput in = ByteStreams.newDataInput(bytes);
-        String sub = in.readUTF();
-        if(sub.equals("PlayerCount"))
-        {
-            String server = in.readUTF();
-            Integer playercount = in.readInt();
-            HubMenuMain.instance.serverPopulation.put(server,playercount);
-        }
-        if (sub.equals("GetServers")) {
-            HubMenuMain.instance.lstServeurs = Arrays.asList(in.readUTF().split(", "));
-        }
-    }
-
-
 
 }

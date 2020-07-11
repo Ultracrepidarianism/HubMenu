@@ -21,6 +21,7 @@ public static HubMenuMain instance;
 public CustomMenu customMenu;
 public List<String> lstServeurs;
 public ServerItem serverItem;
+public static BungeeListener bl;
 public BossBar serverhud;
 public Map<String, Integer> serverPopulation;
 
@@ -60,8 +61,8 @@ public Map<String, Integer> serverPopulation;
 	{
 		HubMenuMain.instance.getServer().getMessenger().registerOutgoingPluginChannel(HubMenuMain.instance, "BungeeCord");
 		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", serverItem );
-		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", new BungeeListener() );
-	}
+		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", bl = new BungeeListener()  );
+}
 	
 	public void InstantiateBossBar()
 	{
