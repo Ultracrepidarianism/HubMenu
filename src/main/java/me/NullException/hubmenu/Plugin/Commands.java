@@ -188,8 +188,10 @@ public class Commands implements CommandExecutor {
 			// HUD perms
 			if (player.hasPermission("hubmenu.hud.modify")) {
 				if (label.equalsIgnoreCase("togglehud")) {
-					if(args.length == 0)
+					if(args.length == 0) {
 						HubMenuMain.instance.serverhud.setVisible(!HubMenuMain.instance.serverhud.isVisible());
+						return true;
+					}
 				}
 				if (label.equalsIgnoreCase("sethudstyle")) {
 					if(args.length == 1)
@@ -242,6 +244,7 @@ public class Commands implements CommandExecutor {
 					}
 				}
 				if (label.equalsIgnoreCase("sethudcolor")) {
+					System.out.println(args.length);
 					if(args.length == 1)
 					{
 						try

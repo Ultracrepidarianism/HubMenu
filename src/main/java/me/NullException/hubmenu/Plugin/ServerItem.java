@@ -93,7 +93,6 @@ public class ServerItem implements PluginMessageListener {
 					}
 				}
 				pPlayer.sendMessage("This server doesn't exist !");
-
 			}
 		}, 5);
 

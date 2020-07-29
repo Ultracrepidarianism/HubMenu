@@ -31,9 +31,6 @@ commands:
    fly:
       description: allows you to fly
       usage: "/fly"
-   test:
-      description: test
-      usage: "test"
    togglehud:
       description: Toggles the hud
       usage: "/hudtoggle"

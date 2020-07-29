@@ -51,6 +51,7 @@ public Map<String, Integer> serverPopulation;
 		this.getCommand("togglehud").setExecutor(new Commands());
 		this.getCommand("sethudtitle").setExecutor(new Commands());
 		this.getCommand("sethudstyle").setExecutor(new Commands());
+		this.getCommand("sethudcolor").setExecutor(new Commands());
 		this.getServer().getPluginManager().registerEvents(new PluginListener(), this);
 	}
 	public void onDisable()
@@ -62,7 +63,7 @@ public Map<String, Integer> serverPopulation;
 		HubMenuMain.instance.getServer().getMessenger().registerOutgoingPluginChannel(HubMenuMain.instance, "BungeeCord");
 		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", serverItem );
 		HubMenuMain.instance.getServer().getMessenger().registerIncomingPluginChannel(HubMenuMain.instance, "BungeeCord", bl = new BungeeListener()  );
-}
+	}
 	
 	public void InstantiateBossBar()
 	{

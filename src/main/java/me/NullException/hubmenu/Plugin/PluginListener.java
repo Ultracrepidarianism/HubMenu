@@ -78,7 +78,6 @@ public class PluginListener implements Listener {
     @EventHandler
     public void OnJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-
         if (player.hasPermission("hubmenu.fly")) {
             player.setAllowFlight(true);
             player.setFlying(true);
@@ -126,6 +125,7 @@ public class PluginListener implements Listener {
 
         ItemStack itemHand = event.getItem();
         Player player = event.getPlayer();
+
         if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
                 && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
             HubMenuMain.instance.customMenu.Open(player);

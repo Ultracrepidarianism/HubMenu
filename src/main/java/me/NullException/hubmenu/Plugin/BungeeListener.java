@@ -14,10 +14,8 @@ public class BungeeListener implements PluginMessageListener {
     @Override
     public synchronized void onPluginMessageReceived(String channel, Player player, byte[] message)
     {
-        System.out.println(channel);
         if(!channel.equals("BungeeCord"))
             return;
-        System.out.println("Receiving PMC");
         ByteArrayDataInput in = ByteStreams.newDataInput(message);
         String sub = in.readUTF();
         if(sub.equals("PlayerCount")) {
@@ -31,7 +29,6 @@ public class BungeeListener implements PluginMessageListener {
 
     public synchronized void sendPluginMessage(String sub,Player ply,String args[])
     {
-        System.out.println("Sending PMC");
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         out.writeUTF(sub);
         for(String arg : args)
