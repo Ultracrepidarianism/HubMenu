@@ -33,16 +33,16 @@ commands:
       usage: "/fly"
    togglehud:
       description: Toggles the hud
-      usage: "/hudtoggle"
+      usage: "/togglehud"
    sethudtitle:
       description: Changes the title of the hud bar
-      usage: "/hudsettitle <title>"
+      usage: "/sethudtitle <title>"
    sethudcolor:
       description: Changes the color of the hud bar
-      usage: "/hudsetcolor <color>"
+      usage: "/sethudcolor <color>"
    sethudstyle:
       description: Changes the style of the hud bar
-      usage: "/hudsetstyle <style>"
+      usage: "/sethudstyle <style>"
 permissions:
    hubmenu.editmenu.use:
       description : Allows you to use the command /editmenu

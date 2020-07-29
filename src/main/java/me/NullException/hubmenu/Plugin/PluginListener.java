@@ -14,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -130,6 +131,10 @@ public class PluginListener implements Listener {
                 && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
             HubMenuMain.instance.customMenu.Open(player);
         }
+    }
+    @EventHandler
+    public void onInventoryDrop(PlayerDropItemEvent p){
+        p.setCancelled(true);
     }
 
     @EventHandler

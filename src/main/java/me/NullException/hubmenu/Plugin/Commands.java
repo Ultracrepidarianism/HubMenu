@@ -244,7 +244,6 @@ public class Commands implements CommandExecutor {
 					}
 				}
 				if (label.equalsIgnoreCase("sethudcolor")) {
-					System.out.println(args.length);
 					if(args.length == 1)
 					{
 						try
