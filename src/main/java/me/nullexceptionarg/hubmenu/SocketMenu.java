@@ -1,4 +1,4 @@
-package me.NullException.hubmenu.Plugin;
+package me.nullexceptionarg.hubmenu;
 
 import java.net.InetSocketAddress;
 import java.net.Socket;

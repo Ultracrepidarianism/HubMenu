@@ -2,47 +2,62 @@ name: HubMenu
 version: 1.0
 api-version: 1.16
 author: NullException
-main: me.NullException.hubmenu.Plugin.HubMenuMain
+main: me.nullexceptionarg.hubmenu.HubMenuMain
+
 commands:
    editmenu: 
       description: Allows you to edit your hub menu
       usage: "/editmenu <SizeOfMenu>"
+      permission: hubmenu.editmenu.use
    setdisplayname:
       description: sets displayname of item
       usage: "/setdisplayname <name>"
+      permission: hubmenu.serveritem.modify
    setlore:
       description: sets lore
       usage: "/setlore <line> <text>"
+      permission: hubmenu.serveritem.modify
    setenchant:
       description: sets enchants
       usage: "/setenchant <enchant> <level>"
+      permission: hubmenu.serveritem.modify
    setitemflag:
       description: sets itemflags
       usage: "/setitemflag <flag>"
+      permission: hubmenu.serveritem.modify
    addserveritem:
       description: creates a serveritem file in the config
       usage: "/addserveritem <BungeeServerName>"
+      permission: hubmenu.serveritem.modify
    setspawn:
       description: sets the spawn
-      usage: "/test"
+      usage: "/setspawn"
+      permission: hubmenu.setspawn
+
    spawn:
       description: teleports to spawn
       usage: "/spawn"
+      permission: hubmenu.spawn
    fly:
       description: allows you to fly
       usage: "/fly"
+      permission: hubmenu.fly
    togglehud:
       description: Toggles the hud
       usage: "/togglehud"
+      permission: hubmenu.hud.modify
    sethudtitle:
       description: Changes the title of the hud bar
       usage: "/sethudtitle <title>"
+      permission: hubmenu.hud.modify
    sethudcolor:
       description: Changes the color of the hud bar
       usage: "/sethudcolor <color>"
+      permission: hubmenu.hud.modify
    sethudstyle:
       description: Changes the style of the hud bar
       usage: "/sethudstyle <style>"
+      permission: hubmenu.hud.modify
 permissions:
    hubmenu.editmenu.use:
       description : Allows you to use the command /editmenu

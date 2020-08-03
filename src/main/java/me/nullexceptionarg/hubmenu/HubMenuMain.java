@@ -1,4 +1,4 @@
-package me.NullException.hubmenu.Plugin;
+package me.nullexceptionarg.hubmenu;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,8 +6,6 @@ import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import java.util.ArrayList;
 import java.util.HashMap;

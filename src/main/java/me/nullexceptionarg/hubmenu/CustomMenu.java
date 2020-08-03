@@ -1,15 +1,10 @@
-package me.NullException.hubmenu.Plugin;
+package me.nullexceptionarg.hubmenu;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import com.google.common.collect.Iterables;
-import com.google.common.io.ByteArrayDataOutput;
-import com.google.common.io.ByteStreams;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -144,7 +139,7 @@ public class CustomMenu {
             }
         }
 
-        if(serverName.equals("")) return "Offline";
+        if(serverName.equals("")) return "Server Not Found";
         return HubMenuMain.instance.serverPopulation.get(serverName) == null ? "Error Loading" : HubMenuMain.instance.serverPopulation.get(serverName).toString();
     }
 

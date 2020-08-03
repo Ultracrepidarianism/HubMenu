@@ -1,4 +1,6 @@
-BoussoleHub: 
+selector:
+   #Exhaustive list of material can be found here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+   material: COMPASS
 # Use "&" to add colors
    name: "&4&lLobby Selector"
    lore:
@@ -15,3 +17,6 @@ bossbar:
    color: white
    #SOLID,SEGMENTED_6,SEGMENTED_10,SEGMENTED_12,SEGMENTED_20
    style: solid
+
+#Set the error message when the user doesn't have the permission to use a plugin
+permission-error: "[#03254cHub#d0efffMenu] You don't have the permission to use this command"

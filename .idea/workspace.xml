@@ -7,11 +7,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8e47dcb-b29c-49e0-89ee-12399125e588" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/BungeeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/BungeeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/Commands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/CustomMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/CustomMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/HubMenuMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/HubMenuMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/PluginListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/PluginListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/ServerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/ServerItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/NullException/hubmenu/Plugin/SocketMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/nullexceptionarg/hubmenu/SocketMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/BungeeListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/Commands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CommonUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/CustomMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/HubMenuMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/PluginListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/ServerItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/NullException/hubmenu/Plugin/SocketMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

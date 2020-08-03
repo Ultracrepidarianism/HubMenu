@@ -1,4 +1,4 @@
-package me.NullException.hubmenu.Plugin;
+package me.nullexceptionarg.hubmenu;
 
 import java.util.List;
 
@@ -14,10 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -28,12 +25,23 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 public class PluginListener implements Listener {
     private FileConfiguration config = HubMenuMain.instance.getConfig();
-    private String nomBoussole = CommonUtils.colorize(config.getConfigurationSection("BoussoleHub").getString("name"));
-    private List<String> loreBoussole = ChangeLoreColor(config.getConfigurationSection("BoussoleHub").getStringList("lore"));
+    private String selectorName = CommonUtils.colorize(config.getConfigurationSection("selector").getString("name"));
+    private List<String> selectorLore = ChangeLoreColor(config.getConfigurationSection("selector").getStringList("lore"));
+    private ItemStack selector = null;
     private CustomMenu menu = HubMenuMain.instance.customMenu;
     private FileConfiguration menuConfig = menu.getData();
 
     public PluginListener() {
+        Material mat = Material.COMPASS;
+
+        if(Material.getMaterial(config.getString("selector.material")) != null)
+            mat = Material.getMaterial(config.getString("selector.material"));
+
+        selector = new ItemStack(mat,1);
+        ItemMeta metaBH = selector.getItemMeta();
+        metaBH.setDisplayName(selectorName);
+        metaBH.setLore(selectorLore);
+        selector.setItemMeta(metaBH);
     }
 
 
@@ -79,6 +87,7 @@ public class PluginListener implements Listener {
     @EventHandler
     public void OnJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        player.updateCommands();
         if (player.hasPermission("hubmenu.fly")) {
             player.setAllowFlight(true);
             player.setFlying(true);
@@ -90,12 +99,7 @@ public class PluginListener implements Listener {
             player.setGameMode(GameMode.ADVENTURE);
         }
         player.setInvulnerable(true);
-        ItemStack boussoleHub = new ItemStack(Material.COMPASS, 1);
-        ItemMeta metaBH = boussoleHub.getItemMeta();
-        metaBH.setDisplayName(nomBoussole);
-        metaBH.setLore(loreBoussole);
-        boussoleHub.setItemMeta(metaBH);
-        player.getInventory().setItem(0, boussoleHub);
+        player.getInventory().setItem(0, selector);
         HubMenuMain.instance.serverhud.addPlayer(player);
         if (HubMenuMain.instance.serverPopulation.size() == 0)
             getServerPopulation();
@@ -128,7 +132,7 @@ public class PluginListener implements Listener {
         Player player = event.getPlayer();
 
         if (itemHand != null && itemHand.hasItemMeta() && itemHand.getItemMeta().hasDisplayName()
-                && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(nomBoussole)) {
+                && itemHand.getItemMeta().getDisplayName().equalsIgnoreCase(selectorName)) {
             HubMenuMain.instance.customMenu.Open(player);
         }
     }
@@ -142,6 +146,15 @@ public class PluginListener implements Listener {
         Inventory inv = event.getView().getTopInventory();
         if (event.getView().getTitle().equalsIgnoreCase("editmenu")) {
             HubMenuMain.instance.customMenu.Save(inv);
+        }
+    }
+
+    @EventHandler
+    public void customPermissionMessage(PlayerCommandPreprocessEvent e){
+        String split = e.getMessage().split(" ")[0].substring(1);
+        if(HubMenuMain.instance.getCommand(split) != null && !e.getPlayer().hasPermission(HubMenuMain.instance.getCommand(split).getPermission())){
+            e.getPlayer().sendMessage(CommonUtils.colorize(config.getString("permission-error", "[#03254cHub#d0efffMenu] You don't have the permission to use this command")));
+            e.setCancelled(true);
         }
     }
 

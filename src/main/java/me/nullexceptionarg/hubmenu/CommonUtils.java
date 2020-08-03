@@ -1,4 +1,4 @@
-package me.NullException.hubmenu.Plugin;
+package me.nullexceptionarg.hubmenu;
 
 
 import net.md_5.bungee.api.ChatColor;
@@ -27,6 +27,4 @@ public final class CommonUtils {
 
         return input;
     }
-
-
 }
